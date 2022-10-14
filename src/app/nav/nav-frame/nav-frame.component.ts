@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { Observable } from 'rxjs'
-import { map, shareReplay } from 'rxjs/operators'
+import { map, shareReplay, take } from 'rxjs/operators'
 import { MatIcon } from '@angular/material/icon'
 import { environment } from 'src/environments/environment'
 import { Router } from '@angular/router'
@@ -58,7 +58,11 @@ export class NavFrameComponent {
       return
     }
 
-    drawer.close()
     this.router.navigateByUrl(link.href)
+    this.isHandset$.pipe(take(1)).subscribe(isHandset => {
+      if (isHandset) {
+        drawer.close()
+      }
+    })
   }
 }
