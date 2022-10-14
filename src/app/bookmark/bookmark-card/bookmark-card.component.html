@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-title>{{ bookmark.bookTitle }}</mat-card-title>
+  <mat-card-subtitle
+    >Last updated on {{ bookmark.updated | date }}, Created on
+    {{ bookmark.created | date }}</mat-card-subtitle
+  >
+  <mat-card-content>
+    <p *ngIf="!bookmark.totalPages; else totalPageDisplay">
+      Page
+      {{ bookmark.page }}
+    </p>
+    <ng-template #totalPageDisplay>
+      <p>Page {{ bookmark.page }} of {{ bookmark.totalPages }}</p>
+      <meter
+        min="0"
+        [max]="bookmark.totalPages"
+        [value]="bookmark.page"
+      ></meter>
+    </ng-template>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button
+      mat-button
+      color="warn"
+      appClickWithoutPropagation
+      (click)="deleteBookmark()"
+    >
+      Delete
+    </button>
+  </mat-card-actions>
+</mat-card>

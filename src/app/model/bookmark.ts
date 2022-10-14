@@ -8,3 +8,5 @@ export type Bookmark = Readonly<{
   created: string | Date
   updated: string | Date
 }>
+
+export type NewBookmark = Pick<Bookmark, 'bookTitle' | 'page' | 'totalPages'>

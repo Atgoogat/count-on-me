@@ -1,0 +1,43 @@
+<app-safe-area>
+  <div class="container" [ngClass]="{ withTotalPages: bookmark.totalPages }">
+    <h1 class="span-2">{{ bookmark.bookTitle }}</h1>
+    <p class="page mat-display-4 span-2">{{ bookmark.page }}</p>
+    <p class="mat-display-1 span-2">Page</p>
+
+    <ng-container *ngIf="bookmark.totalPages">
+      <p class="mat-h2 span-2">{{ bookmark.totalPages }} total pages</p>
+      <meter
+        class="span-2"
+        min="0"
+        [max]="bookmark.totalPages"
+        [value]="bookmark.page"
+      ></meter>
+    </ng-container>
+
+    <button
+      mat-button
+      (click)="changePage(bookmark.page - 1)"
+      [disabled]="!isValidPage(bookmark.page - 1)"
+    >
+      -1
+    </button>
+    <button
+      mat-button
+      (click)="changePage(bookmark.page + 1)"
+      [disabled]="!isValidPage(bookmark.page + 1)"
+    >
+      +1
+    </button>
+
+    <mat-form-field>
+      <input type="number" matInput [ngModel]="bookmark.page" #pageInput />
+    </mat-form-field>
+    <button
+      mat-button
+      (click)="changePage(pageInput.valueAsNumber)"
+      [disabled]="!isValidPage(pageInput.valueAsNumber)"
+    >
+      Set
+    </button>
+  </div>
+</app-safe-area>

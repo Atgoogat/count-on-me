@@ -1,0 +1,19 @@
+<app-safe-area>
+  <ng-container *ngIf="bookmarks$ | async as bookmarks">
+    <div class="container" *ngIf="bookmarks.length > 0; else noBookmarks">
+      <app-bookmark-card
+        *ngFor="let bookmark of bookmarks | sort: 'updated'"
+        [bookmark]="bookmark"
+        [routerLink]="'/bookmark/' + bookmark.id"
+      ></app-bookmark-card>
+    </div>
+    <ng-template #noBookmarks>
+      <div class="no-bookmarks-container">
+        <p class="mat-h1">No Bookmarks yet.</p>
+        <button mat-raised-button color="primary" routerLink="/bookmark/new">
+          Create one?
+        </button>
+      </div>
+    </ng-template>
+  </ng-container>
+</app-safe-area>

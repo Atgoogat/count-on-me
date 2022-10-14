@@ -1,3 +1,6 @@
-export const environment = {
-  production: true
-};
+import { EnvModel } from './environement.model'
+
+export const environment: EnvModel = {
+  production: true,
+  appName: 'CountOnMe',
+}

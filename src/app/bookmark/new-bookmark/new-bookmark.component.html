@@ -1,0 +1,26 @@
+<form [formGroup]="formGroup">
+  <mat-form-field>
+    <mat-label>Book Title</mat-label>
+    <input type="text" matInput formControlName="bookTitle" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Page</mat-label>
+    <input type="number" matInput formControlName="page" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Total pages</mat-label>
+    <input type="number" matInput formControlName="totalPages" />
+  </mat-form-field>
+
+  <button
+    type="submit"
+    mat-fab
+    appGlobalFab
+    (click)="submit()"
+    [disabled]="formGroup.invalid"
+  >
+    <mat-icon>save</mat-icon>
+  </button>
+</form>
