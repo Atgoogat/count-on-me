@@ -102,7 +102,9 @@ export class BookmarkState {
     bookmarks.splice(bookmarkIndex, 1)
     ctx.patchState({ bookmarks })
 
-    const sb = this.snackBar.open('Undo delete?', 'Undo')
+    const sb = this.snackBar.open('Undo delete?', 'Undo', {
+      duration: 3500,
+    })
     sb.onAction().subscribe(() => {
       ctx.dispatch(new UndoBookmarkDeletion(bookmark))
     })
