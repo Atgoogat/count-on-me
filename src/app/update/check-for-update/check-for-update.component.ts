@@ -30,4 +30,8 @@ export class CheckForUpdateComponent implements OnInit {
       )
       .finally(() => (this.loading = false))
   }
+
+  applyUpdate() {
+    document.location.reload()
+  }
 }
