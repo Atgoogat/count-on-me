@@ -1,0 +1,23 @@
+<app-safe-area>
+  <div class="container">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="checkForUpdate()"
+      *ngIf="loading === false"
+    >
+      Check for update
+    </button>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+
+    <ng-container *ngIf="result">
+      <div *ngIf="result.msg">
+        <p>{{ result.msg }}</p>
+        <button mat-raised-button>Apply update</button>
+      </div>
+      <p *ngIf="result.error">
+        {{ result.error }}
+      </p>
+    </ng-container>
+  </div>
+</app-safe-area>

@@ -38,6 +38,11 @@ export class NavFrameComponent {
       icon: 'forum',
       title: 'Fork me on Github',
     },
+    {
+      href: '/update/check-for-update',
+      icon: 'update',
+      title: 'Updates',
+    },
   ]
 
   isHandset$: Observable<boolean> = this.breakpointObserver

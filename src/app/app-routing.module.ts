@@ -22,6 +22,11 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'update',
+    loadChildren: () =>
+      import('./update/update.module').then(m => m.UpdateModule),
+  },
 ]
 
 @NgModule({

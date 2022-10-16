@@ -15,26 +15,22 @@ import { BookmarkCardComponent } from './bookmark/bookmark-card/bookmark-card.co
 import { BookmarkDetailComponent } from './bookmark/bookmark-detail/bookmark-detail.component'
 import { NewBookmarkComponent } from './bookmark/new-bookmark/new-bookmark.component'
 import { BookmarkState } from './state/bookmark.state'
-import { GlobalFabDirective } from './site/global-fab.directive'
 
 import { MatButtonModule } from '@angular/material/button'
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatInputModule } from '@angular/material/input'
-import { MatIconModule } from '@angular/material/icon'
 import { MatCardModule } from '@angular/material/card'
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatIconModule } from '@angular/material/icon'
+import { MatInputModule } from '@angular/material/input'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatToolbarModule } from '@angular/material/toolbar'
 
-import { RecentlyUsedComponent } from './recently-used/recently-used.component'
-import { BookmarkDetailWrapperComponent } from './bookmark/bookmark-detail-wrapper/bookmark-detail-wrapper.component'
-import { ClickDirective } from './site/click.directive'
 import { LayoutModule } from '@angular/cdk/layout'
 import { MatListModule } from '@angular/material/list'
+import { BookmarkDetailWrapperComponent } from './bookmark/bookmark-detail-wrapper/bookmark-detail-wrapper.component'
 import { NavFrameComponent } from './nav/nav-frame/nav-frame.component'
-import { SafeAreaComponent } from './site/safe-area/safe-area.component'
-import { SortPipe } from './site/sort.pipe';
-import { ClickWithoutPropagationDirective } from './site/click-without-propagation.directive'
+import { RecentlyUsedComponent } from './recently-used/recently-used.component'
+import { SiteModule } from './site/site.module'
 
 const matModules = [
   MatButtonModule,
@@ -45,6 +41,7 @@ const matModules = [
   MatToolbarModule,
   MatSidenavModule,
   MatSnackBarModule,
+  MatListModule,
 ]
 
 @NgModule({
@@ -53,14 +50,9 @@ const matModules = [
     NewBookmarkComponent,
     BookmarkDetailComponent,
     BookmarkCardComponent,
-    GlobalFabDirective,
     RecentlyUsedComponent,
     BookmarkDetailWrapperComponent,
-    ClickDirective,
     NavFrameComponent,
-    SafeAreaComponent,
-    SortPipe,
-    ClickWithoutPropagationDirective,
   ],
   imports: [
     BrowserModule,
@@ -88,11 +80,7 @@ const matModules = [
     ReactiveFormsModule,
     ...matModules,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
+    SiteModule,
   ],
   providers: [
     {
